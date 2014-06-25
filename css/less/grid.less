@@ -1,0 +1,235 @@
+/*
+		===========================================
+		Reset all styles
+		===========================================
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd,
+q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, 
+figure, footer, header, hgroup, menu, 
+nav, section {
+	display: block;
+}
+mark {
+	background-color: transparent;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html, body {
+	height: 100%;
+}
+#primary {
+	min-height: 100%;
+}
+.wrapper {
+	max-width: 1200px;
+	margin: 0 auto; 
+}
+.boxed-layout > .primary-wrapper {
+	max-width: 1230px;
+	margin: 0 auto; 
+}
+.boxed-layout > .primary-wrapper {
+	position: relative;
+}
+/* Preserve some sanity */
+.grid,
+.unit {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.ib {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+}
+/* Set up some rules to govern the grid */
+.grid {
+  display: block;
+  clear: both;
+}
+.grid .unit {
+  width: 100%;
+  padding: 0 15px;
+}
+.unit {
+  display: inline-block;
+	zoom: 1;
+	*display: inline;	
+	margin: 0 -2px;
+	vertical-align: top;
+}
+
+/* Let people nuke the gutters/padding completely in a couple of ways */
+.no-gutters .unit,
+.unit.no-gutters {
+  padding: 0 !important;
+}
+.grid .grid {
+	margin: 0 -15px !important;
+}
+.unit .unit {
+	margin: 0 -2px !important;
+}
+.unit.centered {
+	text-align: center;
+}
+
+.grid .whole          { width: 100%; }
+.grid .half           { width: 50%; }
+.grid .one-third      { width: 33.3332%; }
+.grid .two-thirds     { width: 66.6665%; }
+.grid .one-quarter    { width: 25%; }
+.grid .three-quarters { width: 75%; }
+.grid .one-fifth      { width: 20%; }
+.grid .two-fifths     { width: 40%; }
+.grid .three-fifths   { width: 60%; }
+.grid .four-fifths    { width: 80%; }
+.grid .golden-small   { width: 38.2716%; } /* Golden section: smaller piece */
+.grid .golden-large   { width: 61.7283%; } /* Golden section: larger piece */
+.grid .one-sixth			{ width: 16.6666%; }
+.grid .five-sixth			{ width: 83.3333%; }
+.grid .four-sixth			{ width: 66.6666%; }
+
+/* Clearfix after every .grid */
+.grid {
+  *zoom: 1;
+}
+.grid:before, .grid:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.grid:after {
+  clear: both;
+}
+.clear {
+	clear: both;
+}
+
+/* Utility classes */
+.align-center { text-align: center; }
+.align-left   { text-align: left; }
+.align-right  { text-align: right; }
+.pull-left    { float: left; }
+.pull-right   { float: right; }
+
+.show-on-phone,
+.show-on-tablet {
+	display: none;
+}
+
+/* Responsive Stuff */
+@media screen and (max-width: 767px) {
+  /* Stack anything that isn’t full-width on smaller screens */
+  .grid .unit {
+    width: 100% !important;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .unit .grid .unit {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  /* Sometimes, you just want to be different on small screens */
+  .center-on-mobiles {
+    text-align: center !important;
+  }
+  
+}
+
+/**
+	Responsive & layout
+**/
+/* Screen 1200px */
+.hide-on-small-desktop,
+.hide-on-tablet {
+	display: block;
+}
+.hide-on-large-desktop {
+	display: none;
+}
+/* Screen 960px */
+@media only screen and (max-width:1199px) { 
+	.wrapper, .boxed-layout > .primary-wrapper {
+		width: 960px;
+	}
+	.hide-on-large-desktop,
+	.hide-on-tablet {
+		display: block;
+	}
+	.hide-on-small-screen {
+		display: none;
+	}
+	.show-on-phone,
+	.show-on-tablet,
+	.hide-on-small-desktop {
+		display: none;
+	}
+}
+/** Tablet, smaller 960px **/
+@media only screen and (max-width: 959px) { 
+	.wrapper, .boxed-layout > .primary-wrapper {
+		width: 768px;
+	}
+	.hide-on-tablet,
+	.show-on-phone,
+	.hide-on-small-desktop {
+		display: none;
+	}
+	.show-on-tablet,
+	.hide-on-large-desktop {
+		display: block;
+	}
+}
+/** Phone **/
+@media only screen and (max-width: 767px) { 
+	.grid .grid {
+		margin: 0 -1px 0 1px !important;
+	}
+	.wrapper, .boxed-layout > .primary-wrapper {
+		width: 100%;
+	}
+	.grid .unit {
+		padding: 0 15px;	
+		margin: 0;
+	}
+	.hide-on-phone,
+	.show-on-tablet,
+	.hide-on-small-desktop {
+		display: none;
+	}
+	.show-on-phone,
+	.hide-on-large-desktop {
+		display: block;
+	}
+}

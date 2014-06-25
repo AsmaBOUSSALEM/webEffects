@@ -1,0 +1,857 @@
+/**
+	===========================================================================================================================================
+	Pretty checkboxes
+	===========================================================================================================================================
+**/
+.icheckbox,
+.iradio {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	width: 16px;
+	height: 16px;
+	background: url(@img_inputs) no-repeat;
+	border: none;
+	cursor: pointer; 
+	vertical-align: middle;
+	margin-right: 6px;
+}
+.icheckbox {
+	background-position: 0 0;
+}
+.icheckbox.hover {
+	background-position: -17px 0;
+}
+.icheckbox.checked {
+	background-position: -34px 0;
+}
+.icheckbox.disabled {
+	background-position: -51px 0;
+	cursor: default;
+}
+.icheckbox.checked.disabled {
+	background-position: -68px 0;
+}
+.iradio {
+	background-position: -85px 0;
+}
+.iradio.hover {
+	background-position: -103px 0;
+}
+.iradio.checked {
+	background-position: -121px 0;
+}
+.iradio.disabled {
+	background-position: -139px 0;
+	cursor: default;
+}
+.iradio.checked.disabled {
+	background-position: -157px 0;
+}
+/* Retina support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.icheckbox,
+	.iradio {
+		background-image: url(@img_inputs_2x);
+		background-size: 173px 16px;
+	}
+}
+
+.mfp-close:hover {
+	.no-shadow();
+	border: 0 !important;
+}
+
+/**
+	===========================================================================================================================================
+	Page loading progress
+	===========================================================================================================================================
+**/
+/* Make clicks pass-through */
+#nprogress {
+	pointer-events: none;
+}
+#nprogress .bar {
+	background: @color_blue;
+  position: fixed;
+  z-index: 9999 !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  z-index: 9999 !important;
+  box-shadow: 0 0 10px @color_gray, 0 0 5px @color_gray;
+  .opacity( 1 );
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+      -ms-transform: rotate(3deg) translate(0px, -4px);
+          transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+  display: block;
+  position: fixed;
+  z-index: 9999 !important;
+  top: 10px;
+  right: 8px;
+}
+
+#nprogress .spinner-icon {
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  border: solid 2px transparent;
+  border-top-color: @color_blue;
+  border-left-color: @color_blue;
+  border-radius: 50%;
+  -webkit-animation: nprogress-spinner 400ms linear infinite;
+          animation: nprogress-spinner 400ms linear infinite;
+}
+
+@-webkit-keyframes nprogress-spinner {
+  0%   { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes nprogress-spinner {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/**
+	===========================================================================================================================================
+	GoTop button
+	===========================================================================================================================================
+**/
+#toTop {
+	display: none;
+	text-decoration: none;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	overflow: hidden;
+	width: 51px;
+	height: 51px;
+	border: none;
+	text-indent: 100%;
+	z-index: 150;
+	background: @color_dark_2 url(@img_gotop) center center no-repeat;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+	#toTop,#toTopHover {
+		background-image: url(@img_gotop_2x);
+		background-size: 50% !important;
+	}
+}
+#toTopHover {
+	width: 51px;
+	height: 51px;
+	display: block;
+	overflow: hidden;
+	float: left;
+	.opacity( 0 );
+	background: @color_dark_2 url(@img_gotop) center center no-repeat;
+}
+
+#toTop:active, #toTop:focus {
+	outline:none;
+}
+
+.tipsy {
+	.font-size(1.2);
+	position: absolute;
+	padding: 8px;
+	z-index: 100000;
+	margin-left: 20px;
+}
+.tipsy-inner {
+	background-color: @color_dark_2;
+	color: @color_light;
+	max-width: 200px;
+	padding: 0 8px 0 8px;
+	text-align: center;
+}
+/* Rounded corners */
+.tipsy-inner {
+	.rounded( 2px );
+}
+/* Uncomment for shadow */
+.tipsy-inner {
+	.box-shadow( 0 2px 1px -1px @footer_dark_shadow );
+}
+.tipsy-arrow {
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	line-height: 0;
+	
+}
+
+/* Rules to colour arrows */
+.tipsy-arrow-n {
+	background: url(@img_tooltip_top) no-repeat;
+}
+.tipsy-arrow-s {
+	background: url(@img_tooltip_bottom) no-repeat;
+}
+.tipsy-arrow-e {
+	
+}
+.tipsy-arrow-w {
+	
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.tipsy-arrow-n {
+		background-image: url(@img_tooltip_top_2x);
+		background-size: 8px 8px;
+	}
+	.tipsy-arrow-s {
+		background-image: url(@img_tooltip_bottom_2x);
+		background-size: 8px 8px;
+	}
+}
+.tipsy-n .tipsy-arrow { top: 0px; left: 50%; margin-left: -20px; border-bottom-style: solid; border-top: none; border-left-color: transparent; border-right-color: transparent; }
+.tipsy-nw .tipsy-arrow { top: 0; left: 10px; border-bottom-style: solid; border-top: none; border-left-color: transparent; border-right-color: transparent;}
+.tipsy-ne .tipsy-arrow { top: 0; right: 10px; border-bottom-style: solid; border-top: none;  border-left-color: transparent; border-right-color: transparent;}
+.tipsy-s .tipsy-arrow { bottom: 0; left: 50%; margin-left: -20px; border-top-style: solid; border-bottom: none;  border-left-color: transparent; border-right-color: transparent; }
+.tipsy-sw .tipsy-arrow { bottom: 0; left: 10px; border-top-style: solid; border-bottom: none;  border-left-color: transparent; border-right-color: transparent; }
+.tipsy-se .tipsy-arrow { bottom: 0; right: 10px; border-top-style: solid; border-bottom: none; border-left-color: transparent; border-right-color: transparent; }
+.tipsy-e .tipsy-arrow { right: 0; top: 50%; margin-top: -5px; border-left-style: solid; border-right: none; border-top-color: transparent; border-bottom-color: transparent; }
+.tipsy-w .tipsy-arrow { left: 0; top: 50%; margin-top: -5px; border-right-style: solid; border-left: none; border-top-color: transparent; border-bottom-color: transparent; }
+
+/**
+	===========================================================================================================================================
+	SELECT BOX, DROPDOWN
+	===========================================================================================================================================
+**/
+.selecter-element { 
+	position: absolute;
+	opacity: 0;
+}
+.selecter {
+	display: block;
+	margin: 10px 0;
+	position: relative;
+	z-index: 1;
+	
+	.selecter-selected {
+		background: @color_white url(@img_arrow_drop) no-repeat;
+		background-position: right 7px center;
+		border: 1px solid @color_gray;
+		.rounded( 3px );
+		cursor: pointer;
+		display: block;
+		margin: 0;
+		overflow: hidden;
+		padding: 5px 22px 5px 7px;
+		position: relative;
+		text-overflow: clip;
+		z-index: 49;
+		.box-sizing();
+		.transition-all( .3s );
+	}
+	
+	.selecter-selected:hover {
+		.hovered_state();
+		background: @color_white url(@img_arrow_drop_second) no-repeat;
+		background-position: right 7px center;
+	}
+	
+	.selecter-options {
+		border: 1px solid @color_gray;
+		background-color: @color_white;
+		.rounded( 3px );
+		.hovered_state();
+		display: none;
+		left: 0;
+		margin: 0;
+		max-height: 260px;
+		overflow: auto;
+		overflow-x: hidden;
+		padding: 0;
+		position: absolute;
+		top: 100%;
+		width: 100%;
+		z-index: 50;
+	}
+	
+	.selecter-group {
+		background: @color_gray_2;
+		border-bottom: 1px solid @color_gray;
+		display: block;
+		padding: 5px 10px 4px;
+		text-transform: uppercase;
+	}
+	
+	.selecter-item {
+		cursor: pointer;
+		display: block;
+		margin: 0;
+		overflow: hidden;
+		padding: 5px 7px 5px 7px;
+		text-overflow: ellipsis;
+		width: 100%;
+		.transition-all( .3s );
+	}
+	
+	.selecter-item.selected,
+	.selecter-item:hover {
+		background: @color_blue;
+		color: @color_white
+	}
+	
+	.selecter-item.disabled {
+		color: @color_gray_7;
+		cursor: default;
+	}
+	
+	.selecter-item.first {
+		border-radius: 0;
+	} 
+	
+	.selecter-item.last {
+		border-radius: 0 0 2px 2px;
+		border-bottom: 0;
+	}
+	
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.selecter .selecter-selected {
+		background-image: url(@img_arrow_drop_2x);
+		background-size: 9px 5px;
+	}
+	.selecter .selecter-selected:hover {
+		.hovered_state();
+		background-image: url(@img_arrow_drop_second_2x);
+		background-size: 9px 5px;
+	}
+}
+	
+/* Open */
+.selecter.open { z-index: 3; }
+.selecter.open .selecter-selected { border-radius: 3px 3px 0 0; z-index: 51; }
+	
+/* 'Cover' Positioning */
+.selecter.cover .selecter-options { border-radius: 3px; border-width: 1px; top: 0; }
+.selecter.cover .selecter-options .selecter-item.first { border-radius: 3px 3px 0 0; }
+.selecter.cover.open .selecter-selected { border-radius: 3px 3px 0 0; z-index: 49; }
+	
+/* 'Bottom' Positioning */
+.selecter.bottom .selecter-options { border-width: 1px 1px 0; bottom: 100%; top: auto; }
+.selecter.bottom .selecter-item.last { border: none; }
+.selecter.bottom.open .selecter-selected { border-radius: 0 0 3px 3px; }
+.selecter.bottom.open .selecter-options { border-radius: 3px 3px 0 0; }
+	
+/* 'Bottom' + 'Cover' Positioning */
+.selecter.bottom.cover .selecter-options { bottom: 0; top: auto; }
+.selecter.bottom.cover.open .selecter-selected { border-radius: 3px; }
+.selecter.bottom.cover.open .selecter-options { border-radius: 3px; }
+	
+/* Multiple Select */
+.selecter.multiple .selecter-options { border-radius: 3px; border-width: 1px; box-shadow: none; display: block; position: static; width: 100%; }
+	
+/* 'Disabled' State */
+.selecter.disabled .selecter-selected { cursor: default; }
+.selecter.disabled .selecter-group,
+.selecter.disabled .selecter-item { cursor: default; }
+	
+/* Scroller Support */
+.selecter .selecter-options.scroller { overflow: hidden; }
+.selecter .selecter-options.scroller .scroller-content { max-height: 260px; padding: 0; }
+
+.scroller {
+	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	position: relative;
+}
+.scroller-content {
+	height: 100%;
+	overflow: auto;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: relative;
+	z-index: 1;
+}
+.scroller-bar {
+	display: none;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 20px;
+	z-index: 2;
+}
+.scroller-track {
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	background: @color_light_5;
+}
+.scroller-handle {
+	background: @color_blue;
+	.rounded( 5px );
+	cursor: pointer;
+	height: 20px;
+	overflow: hidden;
+	position: absolute;
+	right: 5px;
+	top: 0;
+	width: 10px;
+	z-index: 2; 
+		-webkit-transition: right 0.1s linear, width 0.1s linear;
+		   -moz-transition: right 0.1s linear, width 0.1s linear;
+		   	-ms-transition: right 0.1s linear, width 0.1s linear;
+		   	 -o-transition: right 0.1s linear, width 0.1s linear;
+		   	 	transition: right 0.1s linear, width 0.1s linear;
+}
+	
+/* Webkit Fix */
+.scroller-content::-webkit-scrollbar,
+.scroller-content::-webkit-scrollbar-button,
+.scroller-content::-webkit-scrollbar-track,
+.scroller-content::-webkit-scrollbar-track-piece,
+.scroller-content::-webkit-scrollbar-thumb,
+.scroller-content::-webkit-scrollbar-corner,
+.scroller-content::-webkit-resizer {
+	background: transparent;
+	.opacity( 1 );
+}
+	
+/* Active Scrollbar */
+.scroller-active .scroller-content { padding: 20px; }
+.scroller-active .scroller-bar { display: block; }
+	
+/* Setup Scrollbar - Should match 'active' styles for proper sizing */
+.scroller-active .scroller-content { padding: 20px; }
+.scroller-active .scroller-bar { display: block; }
+	
+/* Horizontal */
+.scroller-horizontal .scroller-content {
+	overflow: auto;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding: 0 0 10px 0;
+}
+.scroller-horizontal .scroller-bar {
+	border-left: none;
+	bottom: 0;
+	height: 20px;
+	top: auto;
+	width: 100%;
+}
+.scroller-horizontal .scroller-handle {
+	bottom: 5px;
+	height: 10px;
+	right: auto;
+	top: auto;
+	width: 20px;
+}
+
+/**
+	===========================================================================================================================================
+	Magnific popup
+	===========================================================================================================================================
+**/
+/* overlay at start */
+.mfp-fade.mfp-bg {
+  .opacity( 0 );
+
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+}
+/* overlay animate in */
+.mfp-fade.mfp-bg.mfp-ready {
+  .opacity( 0.8 );
+}
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing {
+  .opacity( 0 );
+}
+
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content {
+  .opacity( 0 );
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+}
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+  .opacity( 1 );
+}
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+  .opacity( 0 );
+}
+.mfp-counter {
+	display: none;
+}
+.mfp-arrow, .mfp-arrow:focus, .mfp-arrow:hover {
+	.no-shadow();
+	border: 0 !important;
+}
+.mfp-arrow.mfp-arrow-left {
+	left: 15px !important;
+	background-position: left top;
+}
+.mfp-arrow.mfp-arrow-right {
+	right: 15px !important;
+	background-position: right top;
+}
+.mfp-arrow.mfp-arrow-left, .mfp-arrow.mfp-arrow-right {
+	.rounded( 3px );
+	background-color: @color_black;
+	background-image: url( @img_testimonials_pointers );
+}
+.mfp-arrow.mfp-arrow-left:hover {
+	background-position: left bottom;
+}
+.mfp-arrow.mfp-arrow-right:hover {
+	background-position: right bottom;
+}
+.mfp-arrow-left:hover, .mfp-arrow-right:hover {
+	.rounded( 3px );
+	background-color: @color_blue;
+}
+.mfp-preloader {
+	width: 48px;
+	height: 48px;
+	margin-top: -24px;
+	margin-left: -24px;
+	left: 50%;
+	top: 50%;
+	text-indent: -5555em;
+	position: absolute; 
+	background: url( @img_loader ) center center no-repeat;
+}
+/**
+	===========================================================================================================================================
+	Content Slider
+	===========================================================================================================================================
+**/
+.ls-wrapper .ls-nav a {
+  background: @color_light_5;
+  color: @color_brown; 
+  text-transform: uppercase;
+  .font-size( 1.6 );
+  .rounded( 3px );
+}
+.ls-wrapper .ls-nav a:hover, .ls-wrapper .ls-nav .current {
+  background: @color_blue;
+  color: @color_white;
+  .rounded(3px); 
+}
+.ls-wrapper .ls-select-box {  
+  background: @color_light_gray_2 url(@img_arrow_drop) 97% center no-repeat;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.ls-wrapper .ls-select-box {
+		background-image: url(@img_arrow_drop_2x);
+		background-size: 9px 5px;
+	}
+}
+@media only screen and (max-width: 767px) { 
+	section.tabs {
+		padding: 0 !important;
+	}
+}
+
+.ls-wrapper {
+	.ls-nav-right-arrow, .ls-nav-left-arrow {
+		border: 1px solid @color_dark_gray;
+		.rounded( 3px );
+		width: 35px !important;
+		height: 35px !important;
+	}
+	.ls-nav-right-arrow a, .ls-nav-left-arrow a {
+		position: absolute;
+		width: 10px;
+		height: 17px;
+		background: url(@img_pointers_gray) no-repeat;
+		top: 9px;
+		left: 12px;
+	}
+	.ls-nav-right-arrow a {
+		right: 12px;
+		left: auto;
+	}
+	.ls-nav-right-arrow:hover, .ls-nav-left-arrow:hover {
+		border-color: @color_blue;
+	}
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.ls-wrapper {
+		.ls-nav-right-arrow a, .ls-nav-left-arrow a {
+			background-image: url(@img_pointers_gray_2x);
+			background-size: 60px 102px;
+		}
+	}
+}
+.ls-wrapper .ls-nav-right-arrow {
+  background-color: @color_light_gray;	
+  a {
+  	background-position: right top;
+  }
+}
+.ls-wrapper .ls-nav-left-arrow {
+  background-color: @color_light_gray;
+  a {
+  	background-position: left top;
+  }
+}
+.ls-wrapper .ls-nav-right-arrow:hover a {	
+  background-position: right bottom;
+}
+.ls-wrapper .ls-nav-left-arrow:hover a {
+  background-position: left bottom;
+}
+
+/**
+	===========================================================================================================================================
+	OWL carousel
+	===========================================================================================================================================
+**/
+
+.owl-theme .owl-controls{
+	margin-top: 10px;
+	text-align: center;
+}
+
+/* Styling Pagination*/
+
+.owl-theme .owl-controls .owl-page{
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+}
+.owl-page {
+	margin-bottom: 7px;
+}
+.owl-theme .owl-controls .owl-page span{
+	display: block;
+	width: 36px;
+	height: 7px;
+	margin: 0 7px;
+	background-color: @color_gray_2;
+	.transition-all( .3s );
+	.rounded( 3px );
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span{
+	background-color: @color_blue;
+}
+
+/* If PaginationNumbers is true */
+
+.owl-theme .owl-pagination {
+	padding: 30px 0;
+}
+
+/**
+	===========================================================================================================================================
+	UI Slider
+	===========================================================================================================================================
+**/
+
+.ui-widget-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.ui-slider {
+	position: relative;
+	text-align: left;
+}
+.ui-slider .ui-slider-handle {
+	position: absolute;
+	z-index: 2;
+	width: 1.2em;
+	height: 1.2em;
+	cursor: default;
+}
+.ui-slider .ui-slider-range {
+	position: absolute;
+	z-index: 1;
+	font-size: .7em;
+	display: block;
+	border: 0;
+	background-position: 0 0;
+}
+
+/* For IE8 - See #6727 */
+.ui-slider.ui-state-disabled .ui-slider-handle,
+.ui-slider.ui-state-disabled .ui-slider-range {
+	filter: inherit;
+}
+
+.ui-slider-horizontal {
+	height: .8em;
+}
+.ui-slider-horizontal .ui-slider-handle {
+	top: -.2em;
+	margin-left: -.6em;
+}
+.ui-slider-horizontal .ui-slider-range {
+	top: 0;
+	height: 100%;
+}
+.ui-slider-horizontal .ui-slider-range-min {
+	left: 0;
+}
+.ui-slider-horizontal .ui-slider-range-max {
+	right: 0;
+}
+
+.ui-slider-handle {
+	width: 10px !important;
+	height: 10px !important;
+	background: @color_brown;
+	.rounded( 5px );
+	padding: 0;
+	cursor: pointer !important;
+}
+.ui-slider-handle:hover {
+	background: @color_blue;
+}
+.ui-slider-range {
+	height: 4px !important;
+	background: @color_blue;
+}
+.ui-slider {
+	height: 4px !important;
+	background-color: @color_gray;
+	.rounded( 2px );
+}
+
+/**
+	===========================================================================================================================================
+	Thumbnail scroller
+	===========================================================================================================================================
+**/
+.jThumbnailScroller .jTscrollerContainer{position:absolute;left: 0;right:0;}
+.jThumbnailScroller .jTscroller{position:relative; height:100%; margin:0; left:0; top:0; display:inline-block; *display:inline;}
+.jThumbnailScroller .jTscrollerNextButton,.jThumbnailScroller .jTscrollerPrevButton{position:absolute; display:block; .opacity( 0.7 );}
+.jThumbnailScroller .jTscrollerNextButton:hover,.jThumbnailScroller .jTscrollerPrevButton:hover{ .opacity( 1 ); }
+.jTscroller {  overflow: hidden; max-height: 114px !important; }
+
+/* ===============================================================
+Basic Swiper Styles 
+================================================================*/
+.swiper-container {
+	margin:0 auto;
+	position:relative;
+	overflow:hidden;
+	-webkit-backface-visibility:hidden;
+	-moz-backface-visibility:hidden;
+	-ms-backface-visibility:hidden;
+	-o-backface-visibility:hidden;
+	backface-visibility:hidden;
+	/* Fix of Webkit flickering */
+	z-index:1;
+}
+.swiper-wrapper {
+	position:relative;
+	width:100%;
+	-webkit-transition-property:-webkit-transform, left, top;
+	-webkit-transition-duration:0s;
+	-webkit-transform:translate3d(0px,0,0);
+	-webkit-transition-timing-function:ease;
+	
+	-moz-transition-property:-moz-transform, left, top;
+	-moz-transition-duration:0s;
+	-moz-transform:translate3d(0px,0,0);
+	-moz-transition-timing-function:ease;
+	
+	-o-transition-property:-o-transform, left, top;
+	-o-transition-duration:0s;
+	-o-transform:translate3d(0px,0,0);
+	-o-transition-timing-function:ease;
+	-o-transform:translate(0px,0px);
+	
+	-ms-transition-property:-ms-transform, left, top;
+	-ms-transition-duration:0s;
+	-ms-transform:translate3d(0px,0,0);
+	-ms-transition-timing-function:ease;
+	
+	transition-property:transform, left, top;
+	transition-duration:0s;
+	transform:translate3d(0px,0,0);
+	transition-timing-function:ease;
+
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+.swiper-free-mode > .swiper-wrapper {
+	-webkit-transition-timing-function: ease-out;
+	-moz-transition-timing-function: ease-out;
+	-ms-transition-timing-function: ease-out;
+	-o-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+	margin: 0 auto;
+}
+.swiper-slide {
+	float: left;
+}
+
+/* IE10 Windows Phone 8 Fixes */
+.swiper-wp8-horizontal {
+	-ms-touch-action: pan-y;
+}
+.swiper-wp8-vertical {
+	-ms-touch-action: pan-x;
+}
+
+/* ===============================================================
+Your custom styles, here you need to specify container's and slide's
+sizes, pagination, etc.
+================================================================*/
+.swiper-container {
+	/* Specify Swiper's Size: */
+
+	/*width:200px;
+	height: 100px;*/
+}
+.swiper-slide {
+	/* Specify Slides's Size: */
+	
+	/*width: 100%;
+	height: 100%;*/
+}
+.swiper-slide-active {
+	/* Specific active slide styling: */
+	
+}
+.swiper-slide-visible {
+	/* Specific visible slide styling: */	
+
+}
+/* ===============================================================
+Pagination Styles
+================================================================*/
+.swiper-pagination-switch {
+	/* Stylize pagination button: */	
+
+}
+.swiper-active-switch {
+	/* Specific active button style: */	
+	
+}
+.swiper-visible-switch {
+	/* Specific visible button style: */	
+	
+} 

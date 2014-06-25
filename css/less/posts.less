@@ -1,0 +1,154 @@
+/**
+	===========================================================================================================================================
+	Posts Content
+	===========================================================================================================================================
+**/
+.single {
+	.post {
+		
+		.post-date {
+			position: absolute;
+			width: 73px;
+			font-family: @font_secondary;
+		}
+		
+		.post-content {
+			padding-left: 103px;
+			padding-bottom: 25px;
+			
+			.post-text {
+				padding-left: 5px;
+			}
+			
+		}
+		
+		.post-date, .post-content {
+			padding-top: 30px;
+		}
+		
+		.post-slider {
+			margin-bottom: 16px;
+			img {
+				.rounded( 3px );
+			}
+		}
+		
+		.post-date {
+			
+			.font-size( 1.6 );
+			color: @color_brown;
+			text-align: center;
+			
+			.day {
+				display: block;
+				background-color: @color_light_gray;
+				color: @color_blue;
+				.font-size( 3.6 );
+				border-bottom: 1px solid @color_dark_gray;
+				.rounded( 3px );
+				text-align: center;
+				padding: 18px;
+				margin-bottom: 5px;
+			}
+			
+			.year {
+				margin-bottom: 13px;
+			}
+			
+			i {
+				color: @color_brown;
+			}
+			
+			.comments-count {
+				.font-size( 1.4 );
+			}
+		}
+		
+		footer {
+			border-top: 1px solid @color_gray;
+			padding: 10px 11px;
+			margin: 0 -11px;
+			
+			strong {
+				color: @color_blue;
+			}
+			
+		 	p {
+		 		margin-bottom: 7px;
+		 	}
+		 	
+		 	.share-post {
+		 		margin-bottom: 28px;
+		 		a {
+		 			i {
+		 				.font-size( 1.9 );
+		 			}
+		 			
+		 			margin-right: 7px;
+		 			vertical-align: top;
+		 		}
+		 		strong {
+		 			margin-right: 30px;
+		 		}
+		 	}
+			
+			a {
+				color: @color_brown;
+			}
+			a:hover {
+				color: @color_blue;
+			}
+			
+			.author-info {
+				margin-bottom: 25px;
+				.avatar {
+					position: absolute;
+					img {
+						.rounded( 3px );
+					}
+				}
+				
+				.author-title {
+					.font-size( 1.8 );
+					color: @color_blue;
+					span {
+						color: @color_brown;
+						font-weight: bold;
+						.font-size( 1.4 );
+					}
+				}
+				
+				.text {
+					padding-left: 104px;
+					min-height: 72px;
+				 	p {
+				 		margin-bottom: 15px;
+				 	}
+				}
+			}
+			
+			.social-icons i {
+ 				margin-right: 13px;
+ 				.font-size( 1.9 );
+			}
+			
+		}
+		
+	}
+}
+@media only screen and (max-width: 500px) { 
+	.single {
+		.post {
+			.post-date {
+				display: none;
+			}
+			.post-content {
+				padding-left: 0;
+			}
+			footer {
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+	}
+}
